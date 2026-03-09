@@ -25,4 +25,4 @@ The `console_scripts` entry point acts as a map that tells ROS 2: "When I type t
 +----------------+   Publishes   +----------------+   Subscribes   +----------------+
 | Publisher Node | ------------> |     Topic      | -------------> | Subscriber Node|
 |   (Talker)     |   (Message)   |   (/chatter)   |   (Message)    |   (Listener)   |
-+----------------+               +----------------+                +----------------+
++----------------+               +----------------+                +----------------+ 
