@@ -21,4 +21,4 @@ The objective of this lab was to become familiar with ROS 2 command-line tools a
 * **Observation:** The second turtle began driving in a continuous circle independently of the first turtle. By publishing to both topics simultaneously, I observed both turtles moving in circles at the same time, demonstrating that multiple nodes and topics can run concurrently in the ROS 2 ecosystem. (See attached screenshots for the independent and simultaneous control).
 
 ## 3. Conclusion
-Through this exercise, I successfully demonstrated how to interact with a running ROS 2 node using `rqt`. I learned that services are used for quick, one-time requests (like resetting or spawning), while topics are used for continuous data streams (like sending velocity commands to drive the robot).
+Through this exercise, I successfully demonstrated how to interact with a running ROS 2 node using `rqt`. I learned that services are used for quick, one-time requests (like resetting or spawning), while topics are used for continuous data streams (like sending velocity commands to drive the robot). 
