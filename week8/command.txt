@@ -1,0 +1,25 @@
+# ==========================================
+# LAB 8 QUICK REFERENCE COMMANDS
+# ==========================================
+
+# IMPORTANT: WHERE TO RUN THESE COMMANDS 
+# Always ensure you are inside your ROS 2 workspace root folder:
+# cd /mnt/d/ros2_workspace
+
+# --- 1. BUILD THE PACKAGE ---
+cd /mnt/d/ros2_workspace
+colcon build --packages-select my_robot_description
+
+# --- 2. SOURCING ---
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+
+# --- 3. LAUNCH ROBOT URDF IN RVIZ ---
+# Simple / Custom URDF Launch using complete WSL Path:
+ros2 launch urdf_tutorial display.launch.py model:=/mnt/d/ros2_workspace/src/my_robot_description/urdf/my_robot.urdf
+
+# --- 4. GENERATE AND VERIFY TF TRANSFORM TREE ---
+# (Run this in a separate terminal while RViz remains completely open)
+cd /mnt/d/ros2_workspace
+source /opt/ros/humble/setup.bash
+ros2 run tf2_tools view_frames
