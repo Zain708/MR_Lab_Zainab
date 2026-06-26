@@ -1,0 +1,50 @@
+# ==========================================
+# LAB 7 QUICK REFERENCE COMMANDS
+# ==========================================
+
+# IMPORTANT: WHERE TO RUN THESE COMMANDS 
+# Open your terminal and navigate to your ROS 2 workspace root before running anything:
+# cd /mnt/d/ros2_workspace
+
+# --- 1. SOURCING & SETUP ---
+source /opt/ros/humble/setup.bash
+source ~/ros2_workspace/install/setup.bash
+export TURTLEBOT3_MODEL=burger
+
+# --- 2. LAUNCH GAZEBO SIMULATION ---
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+
+# --- 3. LAUNCH NAV2 & RVIZ ---
+ros2 launch turtlebot3_navigation2 navigation2.launch.py \
+use_sim_time:=True \
+map:=$HOME/maps/my_map.yaml
+
+# --- 4. RUN WAYPOINT NAVIGATOR ---
+# Run Task 2 (Hardcoded Mission)
+ros2 run lab7_nav_pkg waypoint_navigator
+
+# Run Task 3 (Dynamic CLI Waypoints - Safe Square Route)
+ros2 run lab7_nav_pkg waypoint_navigator 0.4 0.0 1.0 0.4 0.4 1.0 0.0 0.0 1.0
+
+# --- 5. DEBUGGING & VERIFICATION ---
+# Check if Nav2 action server is up
+ros2 action list
+
+# Echo AMCL pose to see where Nav2 thinks the robot is
+ros2 topic echo /amcl_pose
+
+# Monitor navigation status while the robot is moving
+ros2 topic echo /navigate_to_pose/_action/status
+
+# --- 6. COSTMAPS ---
+# List all costmap-related topics
+ros2 topic list | grep costmap
+
+# Check the global costmap
+ros2 topic echo /global_costmap/costmap
+
+# Watch local costmap update in real-time near an obstacle
+ros2 topic echo /local_costmap/costmap_updates
+
+# Check the inflation radius parameter (how wide the safety buffer is)
+ros2 param get /local_costmap/local_costmap inflation_layer.inflation_radius
