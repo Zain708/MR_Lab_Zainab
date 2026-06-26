@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'my_first_pkg'
+package_name = 'my_turtle_package'
 
 setup(
     name=package_name,
@@ -14,7 +14,7 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='zainab',
-    maintainer_email='zainab@todo.todo',
+    maintainer_email='zainabilyas381@gmail.com',
     description='TODO: Package description',
     license='TODO: License declaration',
     extras_require={
@@ -23,7 +23,10 @@ setup(
         ],
     },
     entry_points={
-        'console_scripts': ['simple_node = my_first_pkg.simple_node:main',
+        'console_scripts': [
+            'task1 = my_turtle_package.task1_node:main',
+            'task2 = my_turtle_package.task2_node:main',
+            'task3 = my_turtle_package.task3_node:main',
         ],
     },
 )
